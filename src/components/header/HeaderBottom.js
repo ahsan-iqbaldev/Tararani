@@ -48,7 +48,7 @@ const HeaderBottom = () => {
 
             <li className="menu-category">
               <a href="#" className="menu-title">
-                Category
+                Collections
               </a>
 
               <div className="dropdown-panel">
@@ -204,77 +204,41 @@ const HeaderBottom = () => {
 
             <li className="menu-category">
               <a href="#" className="menu-title">
-                Men's
+                About Us
               </a>
-
-              <ul className="dropdown-list">
-                <li className="dropdown-item">
-                  <a href="#">Shirts</a>
-                </li>
-
-                <li className="dropdown-item">
-                  <a href="#">Shorts & Jeans</a>
-                </li>
-
-                <li className="dropdown-item">
-                  <a href="#">Safety Shoes</a>
-                </li>
-
-                <li className="dropdown-item">
-                  <a href="#">Wallet</a>
-                </li>
-              </ul>
             </li>
 
             <li className="menu-category">
               <a href="#" className="menu-title">
-                WOMEN'S
+               Contact Us
               </a>
-
-              <ul className="dropdown-list">
-                <li className="dropdown-item">
-                  <a href="#">Dress & Frock</a>
-                </li>
-
-                <li className="dropdown-item">
-                  <a href="#">Earrings</a>
-                </li>
-
-                <li className="dropdown-item">
-                  <a href="#">Necklace</a>
-                </li>
-
-                <li className="dropdown-item">
-                  <a href="#">Makeup Kit</a>
-                </li>
-              </ul>
             </li>
 
             <li className="menu-category">
               <a href="#" className="menu-title">
-                JEWELRY
+                Our Policies
               </a>
 
               <ul className="dropdown-list">
                 <li className="dropdown-item">
-                  <a href="#">Earrings</a>
+                  <a href="#">Privacy Policy</a>
                 </li>
 
                 <li className="dropdown-item">
-                  <a href="#">Couple Rings</a>
+                  <a href="#">Shipping Policy</a>
                 </li>
 
                 <li className="dropdown-item">
-                  <a href="#">Necklace</a>
+                  <a href="#">Terms of Services</a>
                 </li>
 
                 <li className="dropdown-item">
-                  <a href="#">Bracelets</a>
+                  <a href="#">Refund Policy</a>
                 </li>
               </ul>
             </li>
 
-            <li className="menu-category">
+            {/* <li className="menu-category">
               <a href="#" className="menu-title">
                 PERFUME
               </a>
@@ -296,7 +260,7 @@ const HeaderBottom = () => {
                   <a href="#">Air Freshener</a>
                 </li>
               </ul>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

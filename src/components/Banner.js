@@ -24,10 +24,10 @@ const Banner = () => {
       <div
         style={{
           position: "absolute",
-          top: "70%",
+          top: "55%",
           left: "50%",
           transform: "translate(-50%, 0)",
-          width: "210px",
+          width: "150px",
         }}
       >
         <ul
@@ -47,30 +47,30 @@ const Banner = () => {
         style={
           i === dotActive
             ? {
-                width: "30px",
-                height: "30px",
+                width: "20px",
+                height: "20px",
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "white",
+                color: "#131921",
                 background: "#131921",
-                padding: "8px 0",
+                // padding: "8px 0",
                 cursor: "pointer",
-                border: "1px solid #f3a847",
+                // border: "1px solid #f3a847",
               }
             : {
-                width: "30px",
-                height: "30px",
+                width: "15px",
+                height: "15px",
                 borderRadius: "50%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 background: "#232F3E",
-                color: "white",
-                padding: "8px 0",
+                color: "#232F3E",
+                // padding: "8px 0",
                 cursor: "pointer",
-                border: "1px solid white",
+                // border: "1px solid white",
               }
         }
       >

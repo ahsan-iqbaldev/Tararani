@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const products = useSelector((state) => state.amazonReducer.products);
   const dispatch = useDispatch();
-  // ============ Total Amount Start here ==============
   const [totalAmt, setTotalAmt] = useState("");
   useEffect(() => {
     let price = 0;
@@ -24,13 +23,11 @@ const Cart = () => {
     });
     setTotalAmt(price.toFixed(2));
   }, [products]);
-  // ============ Total Amount End here ================
   return (
     <div className="w-full bg-gray-100 p-4">
       {products.length > 0 ? (
         <div className="container mx-auto h-auto grid grid-cols-5 gap-8">
           <div className="w-full bg-white px-4 col-span-5 xl:col-span-4">
-            {/* ====================== Cart title Start here ======================= */}
             <div className="font-titleFont hidden xl:flex items-center justify-between border-b-[1px] border-b-gray-400 py-3">
               <h1 className="text-3xl font-semibold">Shopping Cart</h1>
               <h3 className="text-xl font-semibold">Subtotal</h3>

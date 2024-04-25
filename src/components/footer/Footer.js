@@ -6,9 +6,8 @@ import FooterTop from "./FooterTop";
 const Footer = () => {
   return (
     <div className="font-titleFont">
-      <FooterTop />
       <FooterMiddle />
-      <FooterBottom />
+      {/* <FooterBottom /> */}
     </div>
   );
 };

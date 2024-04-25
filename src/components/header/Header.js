@@ -31,7 +31,7 @@ const Header = () => {
       <div className="w-full bg-amazon_blue text-white px-4 py-3 flex md:justify-between items-center">
         <Link to="/">
           <div className="headerHover">
-            <img className="w-24 mt-2" src={logo} alt="logoImage" />
+            <img className="w-44 mt-2" src={logo} alt="logoImage" />
           </div>
         </Link>
         <div className="hidden md:inline-flex headerHover">
