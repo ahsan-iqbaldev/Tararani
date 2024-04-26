@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import SideNavContent from "./SideNavContent";
 import { useSelector } from "react-redux";
-// import menBanner from "./assets/mens-banner.jpg"
+import { allItems } from "../../constants";
+import SearchIcon from "@mui/icons-material/Search";
 import {
   menImage,
   womenImage,
@@ -15,28 +17,40 @@ import {
 
 const HeaderBottom = () => {
   const userInfo = useSelector((state) => state.amazonReducer.userInfo);
+  const products = useSelector((state) => state.amazonReducer.products);
   const ref = useRef();
   const [sidebar, setSidebar] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
       if (e.target.contains(ref.current)) {
         setSidebar(false);
+        showAll && setShowAll(false);
       }
     });
-  }, [ref, sidebar]);
-  return (
-    <div className="w-full px-4 h-[50px] bg-amazon_light text-white flex items-center sm:justify-start md:justify-center pt-0 md:pt-3">
-      {/* ======================= List Items Start here ======================== */}
-      <ul className="flex items-center gap-2 text-sm tracking-wide sm:block md:hidden">
-        <li
-          onClick={() => setSidebar(true)}
-          className="flex items-center gap-1 headerHover"
-        >
-          <MenuIcon />
-          All
-        </li>
-      </ul>
+  }, [ref, sidebar, showAll]);
 
+  // useEffect(() => {
+  //   document.body.addEventListener("click", (e) => {
+  //     if (e.target.contains(ref.current)) {
+  //       showAll && setShowAll(false);
+  //     }
+  //   });
+  // }, [ref, showAll]);
+  return (
+    <div className="w-full px-4 h-[50px] bg-amazon_light text-white flex items-center sm:justify-between md:justify-center pt-0 md:pt-3">
+      {/* ======================= List Items Start here ======================== */}
+      <div className="w-[20%] md:hidden">
+        <ul className="flex items-center gap-2 text-sm tracking-wide sm:block md:hidden">
+          <li
+            onClick={() => setSidebar(true)}
+            className="flex items-center gap-1 headerHover"
+          >
+            <MenuIcon />
+            All
+          </li>
+        </ul>
+      </div>
       <nav className="hidden md:block">
         <div className="container">
           <ul className="desktop-menu-category-list">
@@ -210,7 +224,7 @@ const HeaderBottom = () => {
 
             <li className="menu-category">
               <a href="#" className="menu-title">
-               Contact Us
+                Contact Us
               </a>
             </li>
 
@@ -229,7 +243,7 @@ const HeaderBottom = () => {
                 </li>
 
                 <li className="dropdown-item">
-                  <a href="#">Terms of Services</a>
+                  <a href="#">Terms Services</a>
                 </li>
 
                 <li className="dropdown-item">
@@ -327,6 +341,42 @@ const HeaderBottom = () => {
           </div>
         </div>
       )}
+
+      <div className="w-[80%] inline-flex h-10 rounded-md relative overflow-hidden sm:justify-end md:hidden">
+        {/* <span
+          onClick={() => setShowAll(!showAll)}
+          className="w-16 h-full bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer duration-300 text-sm text-amazon_blue font-titleFont flex items-center justify-center rounded-tl-md rounded-bl-md"
+        >
+          <span>
+            <ArrowDropDownOutlinedIcon />
+          </span>
+        </span> */}
+        {/* {showAll && (
+          <div>
+            <ul
+              ref={ref}
+              className="absolute w-56 h-80 top-10 left-0 overflow-y-scroll overflow-x-hidden bg-white border-[1px] border-amazon_blue text-black p-2 flex flex-col gap-1 z-50"
+            >
+              {allItems.map((item) => (
+                <li
+                  className="text-sm tracking-wide font-titleFont border-b-[1px] border-b-transparent hover:border-b-amazon_blue cursor-pointer duration-200"
+                  key={item._id}
+                >
+                  {item.title}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )} */}
+
+        <input
+          className="h-full text-base rounded-l-md text-amazon_blue outline-none border-none px-2"
+          type="text"
+        />
+        <span className="w-12 h-full flex items-center justify-center bg-amazon_yellow hover:bg-[#f3a847] duration-300 text-amazon_blue cursor-pointer rounded-tr-md rounded-br-md">
+          <SearchIcon />
+        </span>
+      </div>
       {/* ======================= SideBar End here ============================= */}
       {/* ============ ListItems Start here ============ */}
       {/* ============ ListItems End here ============== */}

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d17dd95d.css",
-    "main.js": "/static/js/main.f49a391c.js",
+    "main.css": "/static/css/main.b6f3d985.css",
+    "main.js": "/static/js/main.f2e5d5ee.js",
     "static/media/81fPKd-2AYL._AC_SL1500_.jpg": "/static/media/81fPKd-2AYL._AC_SL1500_.474294d3c9f202fd43b9.jpg",
     "static/media/bannerImgTwo.jpg": "/static/media/bannerImgTwo.bc1bdb910ead16c65197.jpg",
     "static/media/bannerImgFour.jpg": "/static/media/bannerImgFour.8f7fc6b56e74dba2b6f9.jpg",
@@ -29,11 +29,11 @@
     "static/media/emptyCart.png": "/static/media/emptyCart.230e4848b62fb3cab325.png",
     "static/media/bdFlag.webp": "/static/media/bdFlag.19765596ff60685bb199.webp",
     "index.html": "/index.html",
-    "main.d17dd95d.css.map": "/static/css/main.d17dd95d.css.map",
-    "main.f49a391c.js.map": "/static/js/main.f49a391c.js.map"
+    "main.b6f3d985.css.map": "/static/css/main.b6f3d985.css.map",
+    "main.f2e5d5ee.js.map": "/static/js/main.f2e5d5ee.js.map"
   },
   "entrypoints": [
-    "static/css/main.d17dd95d.css",
-    "static/js/main.f49a391c.js"
+    "static/css/main.b6f3d985.css",
+    "static/js/main.f2e5d5ee.js"
   ]
 }

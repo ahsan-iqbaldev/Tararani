@@ -81,7 +81,7 @@ const Banner = () => {
       {
         breakpoint: 500,
         settings: {
-          dots: true,
+          dots: false,
           appendDots: (dots) => (
             <div
               style={{

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { allItems } from "../../constants";
@@ -25,23 +25,15 @@ const Header = () => {
     });
   }, [ref, showAll]);
 
-
   return (
     <div className="sticky top-0 z-50">
-      <div className="w-full bg-amazon_blue text-white px-4 py-3 flex md:justify-between items-center">
-        <Link to="/">
-          <div className="headerHover">
-            <img className="w-44 mt-2" src={logo} alt="logoImage" />
-          </div>
-        </Link>
-        <div className="hidden md:inline-flex headerHover">
-          {/* <LocationOnOutlinedIcon /> */}
-          {/* <p className="flex flex-col text-xs text-lightText font-light">
-            Deliver to{" "}
-            <span className="text-sm font-semibold -mt-1 text-whiteText">
-              Oman
-            </span>
-          </p> */}
+      <div className=" w-full bg-amazon_blue text-white px-4 py-3 flex justify-between items-center">
+        <div>
+          <Link to="/">
+            <div className="headerHover mr-0 md:mr-2">
+              <img className="w-28 md:w-44 mt-2" src={logo} alt="logoImage" />
+            </div>
+          </Link>
         </div>
         <div className="hidden lgl:inline-flex h-10 rounded-md flex-grow relative">
           <span
@@ -79,28 +71,30 @@ const Header = () => {
             <SearchIcon />
           </span>
         </div>
-        <Link to="/cart">
-          <div className="flex items-start justify-center headerHover relative ml-2">
-            <ShoppingCartIcon />
-            <p className="hidden mdl:inline-flex text-xs font-semibold mt-3 text-whiteText">
-              Cart
-            </p>
-            <span className="absolute text-xs top-0 left-6 w-4 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
-              {products.length > 0 ? products.length : 0}
-            </span>
-          </div>
-        </Link>
-        <Link to="/cart">
-          <div className="flex items-start justify-center headerHover relative">
-            <FavoriteIcon />
-            <p className="hidden mdl:inline-flex text-xs font-semibold mt-3 text-whiteText">
-              Wish List
-            </p>
-            <span className="absolute text-xs top-0 left-6 w-4 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
-              {products.length > 0 ? products.length : 0}
-            </span>
-          </div>
-        </Link>
+        <div className="flex">
+          <Link to="/cart">
+            <div className="flex items-start justify-center headerHover relative ml-2">
+              <ShoppingCartIcon />
+              <p className="hidden mdl:inline-flex text-xs font-semibold mt-3 text-whiteText">
+                Cart
+              </p>
+              <span className="absolute text-xs top-0 left-6 w-4 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
+                {products.length > 0 ? products.length : 0}
+              </span>
+            </div>
+          </Link>
+          <Link to="/cart">
+            <div className="flex items-start justify-center headerHover relative">
+              <FavoriteIcon />
+              <p className="hidden mdl:inline-flex text-xs font-semibold mt-3 text-whiteText">
+                Wish List
+              </p>
+              <span className="absolute text-xs top-0 left-6 w-4 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
+                {products.length > 0 ? products.length : 0}
+              </span>
+            </div>
+          </Link>
+        </div>
       </div>
       <HeaderBottom />
     </div>
