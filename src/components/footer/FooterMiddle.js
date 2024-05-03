@@ -6,7 +6,6 @@ import { logo, bdFlag } from "../../assets/index";
 const FooterMiddle = () => {
   return (
     <div className="w-full bg-amazon_light text-white">
-      {/* ======================= Middle Top Start here ========================== */}
       <div className="w-full border-b-[1px] border-gray-500 py-10">
         <div className="max-w-5xl mx-auto text-gray-300">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-4 place-items-center items-start px-6 gap-10 lgl:gap-4">
@@ -20,18 +19,11 @@ const FooterMiddle = () => {
           </div>
         </div>
       </div>
-      {/* ======================= Middle Top End here ============================ */}
-      {/* ======================= Middle Bottom Start here ======================= */}
       <div className="w-full flex gap-6 items-center justify-center py-6">
         <div>
-          <img className="w-20 pt-3" src={logo} alt="logo" />
+          <img className="w-50 pt-3" src={logo} alt="logo" />
         </div>
       </div>
-      {/* ======================= Middle Bottom End here ========================= */}
-      {/* ============ Top Start here ================== */}
-      {/* ============ Top End here ==================== */}
-      {/* ============ Bottom Start here =============== */}
-      {/* ============ Bottom End here ================= */}
     </div>
   );
 };

@@ -15,6 +15,7 @@ import Signin from "./pages/Signin";
 import Registration from "./pages/Registration";
 import Checkout from "./pages/Checkout";
 import { productsData } from "./api/api";
+import ProductDetail from "./pages/ProductDetail";
 
 const Layout = () => {
   return (
@@ -34,10 +35,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} loader={productsData}></Route>
           <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/product-detail" element={<ProductDetail />}></Route>
         </Route>
-        <Route path="/signin" element={<Signin />}></Route>
-        <Route path="/registration" element={<Registration />}></Route>
-        <Route path="/checkout" element={<Checkout />}></Route>
       </Route>
     )
   );

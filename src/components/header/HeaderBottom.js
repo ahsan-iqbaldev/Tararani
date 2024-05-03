@@ -30,13 +30,6 @@ const HeaderBottom = () => {
     });
   }, [ref, sidebar, showAll]);
 
-  // useEffect(() => {
-  //   document.body.addEventListener("click", (e) => {
-  //     if (e.target.contains(ref.current)) {
-  //       showAll && setShowAll(false);
-  //     }
-  //   });
-  // }, [ref, showAll]);
   return (
     <div className="w-full px-4 h-[50px] bg-amazon_light text-white flex items-center sm:justify-between md:justify-center pt-0 md:pt-3">
       {/* ======================= List Items Start here ======================== */}
@@ -251,36 +244,10 @@ const HeaderBottom = () => {
                 </li>
               </ul>
             </li>
-
-            {/* <li className="menu-category">
-              <a href="#" className="menu-title">
-                PERFUME
-              </a>
-
-              <ul className="dropdown-list">
-                <li className="dropdown-item">
-                  <a href="#">Clothes</a>
-                </li>
-
-                <li className="dropdown-item">
-                  <a href="#">Deodorant</a>
-                </li>
-
-                <li className="dropdown-item">
-                  <a href="#">Flower</a>
-                </li>
-
-                <li className="dropdown-item">
-                  <a href="#">Air Freshener</a>
-                </li>
-              </ul>
-            </li> */}
           </ul>
         </div>
       </nav>
 
-      {/* ======================= List Items End here ========================== */}
-      {/* ======================= SideBar Start here =========================== */}
       {sidebar && (
         <div className="w-full h-screen text-black fixed top-0 left-0 bg-amazon_blue bg-opacity-50">
           <div className="w-full h-full relative">
@@ -343,32 +310,6 @@ const HeaderBottom = () => {
       )}
 
       <div className="w-[80%] inline-flex h-10 rounded-md relative overflow-hidden sm:justify-end md:hidden">
-        {/* <span
-          onClick={() => setShowAll(!showAll)}
-          className="w-16 h-full bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer duration-300 text-sm text-amazon_blue font-titleFont flex items-center justify-center rounded-tl-md rounded-bl-md"
-        >
-          <span>
-            <ArrowDropDownOutlinedIcon />
-          </span>
-        </span> */}
-        {/* {showAll && (
-          <div>
-            <ul
-              ref={ref}
-              className="absolute w-56 h-80 top-10 left-0 overflow-y-scroll overflow-x-hidden bg-white border-[1px] border-amazon_blue text-black p-2 flex flex-col gap-1 z-50"
-            >
-              {allItems.map((item) => (
-                <li
-                  className="text-sm tracking-wide font-titleFont border-b-[1px] border-b-transparent hover:border-b-amazon_blue cursor-pointer duration-200"
-                  key={item._id}
-                >
-                  {item.title}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )} */}
-
         <input
           className="h-full text-base rounded-l-md text-amazon_blue outline-none border-none px-2"
           type="text"
@@ -377,11 +318,6 @@ const HeaderBottom = () => {
           <SearchIcon />
         </span>
       </div>
-      {/* ======================= SideBar End here ============================= */}
-      {/* ============ ListItems Start here ============ */}
-      {/* ============ ListItems End here ============== */}
-      {/* ============ sideNav Start here ============== */}
-      {/* ============ sideNav End here ================ */}
     </div>
   );
 };
