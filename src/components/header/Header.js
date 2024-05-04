@@ -31,7 +31,7 @@ const Header = () => {
         <div>
           <Link to="/">
             <div className="headerHover mr-0 md:mr-2">
-              <img className="w-28 md:w-44 mt-2" src={logo} alt="logoImage" />
+              <img className="w-28 md:w-50 mt-2" src={logo} alt="logoImage" />
             </div>
           </Link>
         </div>

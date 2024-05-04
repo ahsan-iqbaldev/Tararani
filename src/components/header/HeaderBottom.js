@@ -14,6 +14,7 @@ import {
   headphoneImage,
   mouseImage,
 } from "../../assets/index";
+import { Link } from "react-router-dom";
 
 const HeaderBottom = () => {
   const userInfo = useSelector((state) => state.amazonReducer.userInfo);
@@ -48,15 +49,11 @@ const HeaderBottom = () => {
         <div className="container">
           <ul className="desktop-menu-category-list">
             <li className="menu-category">
-              <a href="#" className="menu-title">
-                Home
-              </a>
+              <Link to="/">Home</Link>
             </li>
 
             <li className="menu-category">
-              <a href="#" className="menu-title">
-                Collections
-              </a>
+              <Link to="/collection">Collections</Link>
 
               <div className="dropdown-panel">
                 <ul className="dropdown-panel-list">
@@ -210,15 +207,11 @@ const HeaderBottom = () => {
             </li>
 
             <li className="menu-category">
-              <a href="#" className="menu-title">
-                About Us
-              </a>
+              <Link to="/about"> About Us</Link>
             </li>
 
             <li className="menu-category">
-              <a href="#" className="menu-title">
-                Contact Us
-              </a>
+              <Link to="/contact"> Contact Us</Link>
             </li>
 
             <li className="menu-category">

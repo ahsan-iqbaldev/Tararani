@@ -16,6 +16,10 @@ import Registration from "./pages/Registration";
 import Checkout from "./pages/Checkout";
 import { productsData } from "./api/api";
 import ProductDetail from "./pages/ProductDetail";
+import About from "./pages/About";
+import Collection from "./pages/Collection";
+import Contact from "./pages/Contact";
+import ErrorPage from "./pages/ErrorPage";
 
 const Layout = () => {
   return (
@@ -33,9 +37,13 @@ function App() {
     createRoutesFromElements(
       <Route>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} loader={productsData}></Route>
+          <Route index element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/collection" element={<Collection />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/product-detail" element={<ProductDetail />}></Route>
+          <Route path="/product-detail/:id" element={<ProductDetail />}></Route>
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Route>
     )

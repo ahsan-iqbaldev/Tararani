@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 import ApiIcon from "@mui/icons-material/Api";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -29,12 +29,11 @@ import image14 from "../assets/81Zt42ioCgL._AC_SX679_.jpg";
 import image15 from "../assets/81fPKd-2AYL._AC_SL1500_.jpg";
 
 const Recommended = () => {
-  const data = useLoaderData();
-  const productsData = data.data;
   const dispatch = useDispatch();
 
   const recProducts = [
     {
+      id: 617631898,
       name: "Mens Casual Premium",
       description:
         "Slim-fitting style, contrast raglan long sleeve, three-button henley pSlim-fitting style, contrast raglan long sleeve, three-button henley p",
@@ -42,6 +41,7 @@ const Recommended = () => {
       images: [image1, image8, image4, image1, image9],
     },
     {
+      id: 7672637,
       name: "Mens Casual Premium",
       description:
         "Slim-fitting style, contrast raglan long sleeve, three-button henley pSlim-fitting style, contrast raglan long sleeve, three-button henley p",
@@ -49,6 +49,7 @@ const Recommended = () => {
       images: [image5, image2, image8, image11, image4],
     },
     {
+      id: 61742423,
       name: "Mens Casual Premium",
       description:
         "Slim-fitting style, contrast raglan long sleeve, three-button henley pSlim-fitting style, contrast raglan long sleeve, three-button henley p",
@@ -56,6 +57,7 @@ const Recommended = () => {
       images: [image13, image12, image10, image9, image8],
     },
     {
+      id: 617242343,
       name: "Mens Casual Premium",
       description:
         "Slim-fitting style, contrast raglan long sleeve, three-button henley pSlim-fitting style, contrast raglan long sleeve, three-button henley p",
@@ -67,11 +69,8 @@ const Recommended = () => {
   return (
     <>
       {recProducts.map((item, index) => (
-        <Link to="/product-detail">
-          <div
-            key={index}
-            className="bg-white h-auto border-[1px] border-gray-200 pt-6 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4 rounded-xl"
-          >
+    <Link to={`/product-detail/${item?.id}`} key={index + 100}>
+          <div className="bg-white h-auto border-[1px] border-gray-200 pt-6 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4 rounded-xl">
             <div className="w-full h-auto flex items-center justify-center relative group">
               <Swiper
                 cssMode={true}

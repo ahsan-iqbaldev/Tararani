@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 import ApiIcon from "@mui/icons-material/Api";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -16,8 +16,6 @@ import JustForYou from "./JustForYou";
 import image5 from "../assets/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg";
 
 const Products = () => {
-  const data = useLoaderData();
-  const productsData = data.data;
   const dispatch = useDispatch();
 
   const categories = [
@@ -41,9 +39,12 @@ const Products = () => {
 
   return (
     <div>
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-4 px-4">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-4 px-10 md:px-4">
         {categories.map((item, index) => (
-          <div className="bg-white h-auto border-[1px] border-gray-200 pt-6 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4 rounded-xl">
+          <div
+            key={index + 100}
+            className="bg-white h-auto border-[1px] border-gray-200 pt-6 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4 rounded-xl"
+          >
             <div className="w-full h-auto flex items-center justify-center relative group">
               <img src={item?.image} className="w-80 h-64 object-contain" />
             </div>
@@ -66,13 +67,13 @@ const Products = () => {
       <h2 className="mt-8 md:mt-5 font-titleFont tracking-wide text-lg md:text-2xl text-amazon_blue font-bold px-4">
         Top Selling Products
       </h2>
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-4 px-4 mt-2">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-4 px-10 md:px-4 mt-2">
         <Recommended />
       </div>
       <h2 className="mt-5 font-titleFont tracking-wide text-lg md:text-2xl text-amazon_blue font-bold px-4">
         Just For You
       </h2>
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-4 px-4 mt-2">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-4 px-10 md:px-4 mt-2">
         <JustForYou />
       </div>
       <div className="w-full text-center pt-6">

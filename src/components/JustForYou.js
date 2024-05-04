@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 import ApiIcon from "@mui/icons-material/Api";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -29,11 +29,39 @@ import image14 from "../assets/81Zt42ioCgL._AC_SX679_.jpg";
 import image15 from "../assets/81fPKd-2AYL._AC_SL1500_.jpg";
 
 const JustForYou = () => {
-  const data = useLoaderData();
-  const productsData = data.data;
+  // const data = useLoaderData();
+  // const productsData = data.data;
   const dispatch = useDispatch();
 
   const recProducts = [
+    {
+      name: "Mens Casual Premium",
+      description:
+        "Slim-fitting style, contrast raglan long sleeve, three-button henley pSlim-fitting style, contrast raglan long sleeve, three-button henley p",
+      price: 300,
+      images: [image7, image8, image4, image1, image9],
+    },
+    {
+      name: "Mens Casual Premium",
+      description:
+        "Slim-fitting style, contrast raglan long sleeve, three-button henley pSlim-fitting style, contrast raglan long sleeve, three-button henley p",
+      price: 300,
+      images: [image14, image2, image8, image11, image4],
+    },
+    {
+      name: "Mens Casual Premium",
+      description:
+        "Slim-fitting style, contrast raglan long sleeve, three-button henley pSlim-fitting style, contrast raglan long sleeve, three-button henley p",
+      price: 300,
+      images: [image3, image12, image10, image9, image8],
+    },
+    {
+      name: "Mens Casual Premium",
+      description:
+        "Slim-fitting style, contrast raglan long sleeve, three-button henley pSlim-fitting style, contrast raglan long sleeve, three-button henley p",
+      price: 300,
+      images: [image5, image8, image2, image9, image10],
+    },
     {
       name: "Mens Casual Premium",
       description:

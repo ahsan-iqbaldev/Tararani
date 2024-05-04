@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import image from "../assets/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg";
+import image from "../assets/51eg55uWmdL._AC_UX679_.jpg";
+import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState("");
+  const {id} = useParams()
+  console.log(id,"id")
 
   const handleColorSelect = (color) => {
     setSelectedColor(color);
@@ -10,7 +13,7 @@ const ProductDetail = () => {
   return (
     <section className="text-gray-700 body-font overflow-hidden bg-white">
       <div className="container px-2 py-24 mx-auto">
-        <div className="lg:w-4/5 mx-auto flex flex-wrap justify-center">
+        <div className="lg:w-4/5 mx-auto flex gap-8 flex-wrap justify-center">
           <img
             alt="ecommerce"
             className="lg:w-1/3 md:w-full rounded border border-gray-200 h-[300px] md:h-[450px]"
@@ -28,9 +31,9 @@ const ProductDetail = () => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-yellow-400"
                   viewBox="0 0 24 24"
                 >
@@ -39,9 +42,9 @@ const ProductDetail = () => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-yellow-400"
                   viewBox="0 0 24 24"
                 >
@@ -50,9 +53,9 @@ const ProductDetail = () => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-yellow-400"
                   viewBox="0 0 24 24"
                 >
@@ -61,9 +64,9 @@ const ProductDetail = () => {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-yellow-400"
                   viewBox="0 0 24 24"
                 >
@@ -72,9 +75,9 @@ const ProductDetail = () => {
                 <svg
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-yellow-400"
                   viewBox="0 0 24 24"
                 >
@@ -179,9 +182,9 @@ const ProductDetail = () => {
                     <svg
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-4 h-4"
                       viewBox="0 0 24 24"
                     >
@@ -191,20 +194,20 @@ const ProductDetail = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between">
-              <button className="w-60 py-3 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 ">
+            <div className="flex justify-between flex-col md:flex-row gap-3">
+              <button className="w-100 md:w-60 py-3 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 ">
                 Cash on Delivery
               </button>
               <div className="flex">
-                <button className=" py-2 px-6 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 ">
+                <button className="w-80 md:w-40 py-2 px-6 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 ">
                   Add to Card
                 </button>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >

@@ -9,7 +9,10 @@ import {
 } from "../assets/index";
 
 const Banner = () => {
-  const [dotActive, setDocActive] = useState(0);
+  const [dotActive, setDotActive] = useState(0);
+
+  const images = [bannerImgOne, bannerImgTwo, bannerImgThree, bannerImgFour, bannerImgFive];
+
   const settings = {
     dots: true,
     infinite: true,
@@ -18,7 +21,7 @@ const Banner = () => {
     slidesToScroll: 1,
     arrows: false,
     beforeChange: (prev, next) => {
-      setDocActive(next);
+      setDotActive(next);
     },
     appendDots: (dots) => (
       <div
@@ -55,9 +58,7 @@ const Banner = () => {
                 justifyContent: "center",
                 color: "#131921",
                 background: "#131921",
-                // padding: "8px 0",
                 cursor: "pointer",
-                // border: "1px solid #f3a847",
               }
             : {
                 width: "15px",
@@ -68,9 +69,7 @@ const Banner = () => {
                 justifyContent: "center",
                 background: "#232F3E",
                 color: "#232F3E",
-                // padding: "8px 0",
                 cursor: "pointer",
-                // border: "1px solid white",
               }
         }
       >
@@ -145,25 +144,16 @@ const Banner = () => {
       },
     ],
   };
+
   return (
-    <div className="w-full">
+    <div className="w-full h-60 md:h-auto">
       <div className="w-full h-full relative">
         <Slider {...settings}>
-          <div>
-            <img src={bannerImgOne} alt="bannerImgOne" />
-          </div>
-          <div>
-            <img src={bannerImgTwo} alt="bannerImgTwo" />
-          </div>
-          <div>
-            <img src={bannerImgThree} alt="bannerImgThree" />
-          </div>
-          <div>
-            <img src={bannerImgFour} alt="bannerImgFour" />
-          </div>
-          <div>
-            <img src={bannerImgFive} alt="bannerImgFive" />
-          </div>
+          {images.map((image, index) => (
+            <div key={index}>
+              <img src={image} alt={`bannerImg${index + 1}`} className="h-40 md:h-auto" />
+            </div>
+          ))}
         </Slider>
       </div>
     </div>
