@@ -166,43 +166,6 @@ const HeaderBottom = () => {
                     </a>
                   </li>
                 </ul>
-
-                <ul className="dropdown-panel-list">
-                  <li className="menu-title">
-                    <a href="#">Electronics</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">Smart Watch</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">Smart TV</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">Keyboard</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">Mouse</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">Microphone</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">
-                      <img
-                        src={mouseImage}
-                        alt="mouse collection"
-                        width="250"
-                        height="119"
-                      />
-                    </a>
-                  </li>
-                </ul>
               </div>
             </li>
 
@@ -210,30 +173,28 @@ const HeaderBottom = () => {
               <Link to="/about"> About Us</Link>
             </li>
 
-            <li className="menu-category">
+            {/* <li className="menu-category">
               <Link to="/contact"> Contact Us</Link>
-            </li>
+            </li> */}
 
             <li className="menu-category">
-              <a href="#" className="menu-title">
                 Our Policies
-              </a>
 
               <ul className="dropdown-list">
                 <li className="dropdown-item">
-                  <a href="#">Privacy Policy</a>
+                  <Link to='/privacy-policy'>Privacy Policy</Link>
                 </li>
 
                 <li className="dropdown-item">
-                  <a href="#">Shipping Policy</a>
+                <Link to='/shipping-policy'>Shipping Policy</Link>
                 </li>
 
                 <li className="dropdown-item">
-                  <a href="#">Terms Services</a>
+                <Link to='/terms-of-service'>Terms Services</Link>
                 </li>
 
                 <li className="dropdown-item">
-                  <a href="#">Refund Policy</a>
+                <Link to='/refund-policy'>Refund Policy</Link>
                 </li>
               </ul>
             </li>

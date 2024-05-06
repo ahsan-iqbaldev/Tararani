@@ -372,7 +372,7 @@
     background: #fff;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 30px;
     border: 1px solid hsl(0, 0%, 93%);

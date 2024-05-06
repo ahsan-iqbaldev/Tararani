@@ -20,6 +20,10 @@ import About from "./pages/About";
 import Collection from "./pages/Collection";
 import Contact from "./pages/Contact";
 import ErrorPage from "./pages/ErrorPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ShippingPolicy from "./pages/ShippingPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import RefundPolicy from "./pages/RefundPolicy";
 
 const Layout = () => {
   return (
@@ -41,6 +45,10 @@ function App() {
           <Route path="/about" element={<About />}></Route>
           <Route path="/collection" element={<Collection />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
+          <Route path="/shipping-policy" element={<ShippingPolicy />}></Route>
+          <Route path="/terms-of-service" element={<TermsOfService />}></Route>
+          <Route path="/refund-policy" element={<RefundPolicy />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/product-detail/:id" element={<ProductDetail />}></Route>
           <Route path="*" element={<ErrorPage />} />
