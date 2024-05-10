@@ -6,7 +6,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/amazonSlice";
+// import { addToCart } from "../redux/amazonSlice";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

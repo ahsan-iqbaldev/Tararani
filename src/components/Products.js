@@ -1,57 +1,32 @@
-import React from "react";
-// import { useLoaderData } from "react-router-dom";
-import StarIcon from "@mui/icons-material/Star";
-import ApiIcon from "@mui/icons-material/Api";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/amazonSlice";
-import image6 from "../assets/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg";
-import image8 from "../assets/71YXzeOuslL._AC_UY879_.jpg";
-import image12 from "../assets/81QpkIctqPL._AC_SX679_.jpg";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Recommended from "./Recommended";
-import { Button } from "@mui/material";
 import JustForYou from "./JustForYou";
-import image5 from "../assets/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg";
+import { getCaterories } from "../store/actions/categoriesAction";
 
 const Products = () => {
   const dispatch = useDispatch();
+  const {categories} = useSelector((state) => state.Categories)
 
-  const categories = [
-    {
-      name: "Wall Decoration",
-      image: image5,
-    },
-    {
-      name: "Accesriess",
-      image: image6,
-    },
-    {
-      name: "Business",
-      image: image8,
-    },
-    {
-      name: "Wallpapers",
-      image: image12,
-    },
-  ];
+  useEffect(() => {
+    dispatch(getCaterories());
+  }, []);
 
   return (
     <div>
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-4 px-10 md:px-4">
-        {categories.map((item, index) => (
+        {categories?.map((item, index) => (
           <div
             key={index + 100}
             className="bg-white h-auto border-[1px] border-gray-200 pt-6 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4 rounded-xl"
           >
             <div className="w-full h-auto flex items-center justify-center relative group">
-              <img src={item?.image} className="w-80 h-64 object-contain" />
+              <img src={item?.Categoryimage} className="w-80 h-64 object-contain" />
             </div>
             <div className="px-4 bg-gray-100 flex flex-col gap-1 z-10 pt-3 pb-5">
               <div className="flex items-center justify-center">
                 <h2 className="font-titleFont tracking-wide text-lg text-amazon_blue font-medium">
-                  {item?.name}
+                  {item?.title}
                 </h2>
               </div>
             </div>

@@ -17,8 +17,8 @@ import {
 import { Link } from "react-router-dom";
 
 const HeaderBottom = () => {
-  const userInfo = useSelector((state) => state.amazonReducer.userInfo);
-  const products = useSelector((state) => state.amazonReducer.products);
+  // const userInfo = useSelector((state) => state.amazonReducer.userInfo);
+  // const products = useSelector((state) => state.amazonReducer.products);
   const ref = useRef();
   const [sidebar, setSidebar] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -213,7 +213,7 @@ const HeaderBottom = () => {
               className="w-[290px] md:w-[350px] h-full bg-white border border-black"
             >
               <div className="w-full bg-amazon_light text-white py-2 px-6 flex items-center gap-4">
-                {userInfo ? (
+                {/* {userInfo ? (
                   <img
                     className="w-10 h-10 rounded-full"
                     src={userInfo.image}
@@ -221,7 +221,7 @@ const HeaderBottom = () => {
                   />
                 ) : (
                   <AccountCircleIcon />
-                )}
+                )} */}
                 <h3 className="font-titleFont font-bold text-lg tracking-wide">
                   Hello, Sign In
                 </h3>
