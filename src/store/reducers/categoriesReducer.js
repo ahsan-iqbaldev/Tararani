@@ -1,6 +1,7 @@
 const initialState = {
     categories: [],
-    // singleProperty: null,
+    allCategories: [],
+    singleCategory: null,
     isLoading: false,
   };
   
@@ -8,8 +9,10 @@ const initialState = {
     switch (action.type) {
       case "SET_CATEGORIES":
         return { ...state, categories: action.payload };
-        // case "SET_SINGLE_PROPERTIES":
-        //   return { ...state, singleProperty: action.payload };
+        case "SET_ALL_CATEGORIES":
+          return { ...state, allCategories: action.payload };
+        case "GET_SINGLE_CATEGORY":
+          return { ...state, singleCategory: action.payload };
           case "SET_IS_LOADING":
           return { ...state, isLoading: action.payload };
   

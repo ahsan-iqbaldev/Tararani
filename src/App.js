@@ -11,10 +11,6 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
-import Signin from "./pages/Signin";
-import Registration from "./pages/Registration";
-import Checkout from "./pages/Checkout";
-import { productsData } from "./api/api";
 import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Collection from "./pages/Collection";
@@ -24,6 +20,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import RefundPolicy from "./pages/RefundPolicy";
+import CategoryProducts from "./pages/CategoryProducts";
+import AllCategories from "./pages/AllCategories";
 
 const Layout = () => {
   return (
@@ -50,7 +48,9 @@ function App() {
           <Route path="/terms-of-service" element={<TermsOfService />}></Route>
           <Route path="/refund-policy" element={<RefundPolicy />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/categories" element={<AllCategories />}></Route>
           <Route path="/product-detail/:id" element={<ProductDetail />}></Route>
+          <Route path="/category-product/:id" element={<CategoryProducts />}></Route>
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Route>
