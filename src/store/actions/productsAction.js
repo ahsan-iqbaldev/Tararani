@@ -68,6 +68,7 @@ export const getSingleProduct = (id) => async (dispatch) => {
 };
 
 
+
 export const setIsLoading = (val) => async (dispatch) => {
   dispatch({
     type: "SET_IS_LOADING",

@@ -3,16 +3,27 @@ import image from "../assets/51eg55uWmdL._AC_UX679_.jpg";
 import { useParams } from "react-router-dom";
 import { getSingleProduct } from "../store/actions/productsAction";
 import { useDispatch, useSelector } from "react-redux";
+import CashOnDelivaryModal from "../components/CashOnDelivaryModal";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { singleProduct } = useSelector((state) => state.Products);
   const [selectedColor, setSelectedColor] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleColorSelect = (color) => {
     setSelectedColor(color);
   };
+  const handleCart = (payload) => {};
   useEffect(() => {
     dispatch(getSingleProduct(id));
   }, []);
@@ -107,13 +118,26 @@ const ProductDetail = () => {
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
               <div className="flex">
                 <span className="mr-3">Color</span>
+
                 <button
                   className={`border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none ${
-                    selectedColor === "white" ? "bg-white" : ""
+                    singleProduct?.color
+                      ? selectedColor === "white"
+                        ? "bg-white"
+                        : ""
+                      : "cursor-not-allowed"
                   }`}
-                  onClick={() => handleColorSelect("white")}
+                  onClick={() => {
+                    if (singleProduct?.color) {
+                      handleColorSelect("white");
+                    } else {
+                      alert(
+                        "Custom colors are not available for this product."
+                      );
+                    }
+                  }}
                 >
-                  {selectedColor === "white" && (
+                  {selectedColor === "white" && singleProduct?.color && (
                     <svg
                       className="w-4 h-4 text-green-500 ml-1"
                       fill="none"
@@ -129,35 +153,26 @@ const ProductDetail = () => {
                     </svg>
                   )}
                 </button>
+
                 <button
                   className={`border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none ${
-                    selectedColor === "black" ? "bg-black" : ""
+                    singleProduct?.color
+                      ? selectedColor === "black"
+                        ? "bg-black"
+                        : ""
+                      : "cursor-not-allowed"
                   }`}
-                  onClick={() => handleColorSelect("black")}
+                  onClick={() => {
+                    if (singleProduct?.color) {
+                      handleColorSelect("black");
+                    } else {
+                      alert(
+                        "Custom colors are not available for this product."
+                      );
+                    }
+                  }}
                 >
-                  {selectedColor === "black" && (
-                    <svg
-                      className="w-4 h-4 text-green-500 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  )}
-                </button>
-                <button
-                  className={`border-2 border-gray-300 ml-1 bg-red-500 rounded-full w-6 h-6 focus:outline-none ${
-                    selectedColor === "red" ? "bg-red-500" : ""
-                  }`}
-                  onClick={() => handleColorSelect("red")}
-                >
-                  {selectedColor === "red" && (
+                  {selectedColor === "black" && singleProduct?.color && (
                     <svg
                       className="w-4 h-4 text-green-500 ml-1"
                       fill="none"
@@ -177,7 +192,12 @@ const ProductDetail = () => {
               <div className="flex ml-6 items-center">
                 <span className="mr-3">Size</span>
                 <div className="relative">
-                  <select className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
+                  <select
+                    className={`rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10 ${
+                      singleProduct?.size ? "" : "cursor-not-allowed"
+                    }`}
+                    disabled={!singleProduct?.size}
+                  >
                     <option>SM</option>
                     <option>M</option>
                     <option>L</option>
@@ -200,11 +220,29 @@ const ProductDetail = () => {
               </div>
             </div>
             <div className="flex justify-between flex-col md:flex-row gap-3">
-              <button className="w-100 md:w-60 py-3 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 ">
+              <button
+                onClick={openModal}
+                className="w-100 md:w-60 py-3 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 "
+              >
                 Cash on Delivery
               </button>
               <div className="flex">
-                <button className="w-80 md:w-40 py-2 px-6 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 ">
+                <button
+                  // onClick={() =>
+                  //   dispatch(
+                  //     addToCart({
+                  //       id: singleProduct.id,
+                  //       title: singleProduct.title,
+                  //       description: singleProduct.description,
+                  //       price: singleProduct.price,
+                  //       category: singleProduct.category,
+                  //       image: singleProduct.productImages,
+                  //       quantity: 1,
+                  //     })
+                  //   )
+                  // }
+                  className="w-80 md:w-40 py-2 px-6 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 "
+                >
                   Add to Card
                 </button>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
@@ -224,6 +262,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      {isModalOpen && <CashOnDelivaryModal onClose={closeModal} />}
     </section>
   );
 };
