@@ -64,9 +64,9 @@ export const getCaterories = () => {
     console.log("firebase", data);
   };
 
-  export const setIsLoading = (val) => async (dispatch) => {
-    dispatch({
-      type: "SET_IS_LOADING",
-      payload: val,
-    });
-  };
+  // export const setIsLoading = (val) => async (dispatch) => {
+  //   dispatch({
+  //     type: "SET_IS_LOADING",
+  //     payload: val,
+  //   });
+  // };
