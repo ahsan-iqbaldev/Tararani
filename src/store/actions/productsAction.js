@@ -48,6 +48,24 @@ export const getCateroriesProducts = (categoryId) => {
   };
 };
 
+export const getSingleProduct = (id) => async (dispatch) => {
+  dispatch(setIsLoading(true));
+  const data = firebase
+    .firestore()
+    .collection("products")
+    .doc(id)
+    .onSnapshot(async (query) => {
+      if (query.data()) {
+        dispatch({
+          type: "GET_SINGLE_PRODUCT",
+          payload: { id: query.id, ...query.data() },
+        });
+      }
+
+      dispatch(setIsLoading(true));
+    });
+  console.log("firebase", data);
+};
 
 
 export const setIsLoading = (val) => async (dispatch) => {
