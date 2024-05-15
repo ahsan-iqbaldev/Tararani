@@ -20,11 +20,8 @@ const Products = () => {
     <div>
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-4 px-10 md:px-4">
         {categories?.map((item, index) => (
-          <Link to={`/category-product/${item?.id}`}>
-            <div
-              key={index + 100}
-              className="bg-white h-auto border-[1px] border-gray-200 pt-6 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4 rounded-xl"
-            >
+          <Link to={`/category-product/${item?.id}`} key={index + 100}>
+            <div className="bg-white h-auto border-[1px] border-gray-200 pt-6 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4 rounded-xl">
               <div className="w-full h-auto flex items-center justify-center relative group">
                 <img
                   src={item?.Categoryimage}

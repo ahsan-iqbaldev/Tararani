@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { countries } from "../context/index";
+import { useDispatch } from "react-redux";
+import { addOrder } from "../store/actions/productsAction";
+import { toast } from "react-toastify";
 
-const CashOnDelivaryModal = ({ onClose }) => {
+const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
+  const dispatch = useDispatch();
+
+  console.log(currentCity, "currentCity");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -10,6 +16,7 @@ const CashOnDelivaryModal = ({ onClose }) => {
     selectedState: "",
     selectedCity: "",
     address: "",
+    curLocation: currentCity,
   });
 
   const handleInputChange = (e) => {
@@ -29,6 +36,15 @@ const CashOnDelivaryModal = ({ onClose }) => {
       }));
     }
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+   await dispatch(addOrder(formData,() => {
+      toast.success('Your order are submit sucessfully')
+    }));
+    console.log(formData, "formData");
+  };
+
 
   return (
     <>
@@ -55,7 +71,7 @@ const CashOnDelivaryModal = ({ onClose }) => {
                 </svg>
               </div>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div class=" flex flex-col-reverse md:flex-row">
                 <div class="flex-auto w-full md:w-[70%] ">
                   <div className="flex flex-wrap -mx-4">
@@ -100,12 +116,11 @@ const CashOnDelivaryModal = ({ onClose }) => {
                       <div className="relative input-group-alternative">
                         <input
                           type="text"
-                          placeholder="Add Email"
+                          placeholder="Add Email (optional)"
                           onChange={handleInputChange}
                           value={formData.email}
                           name="email"
                           className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm form-control"
-                          required
                         />
                       </div>
                     </div>
@@ -209,7 +224,7 @@ const CashOnDelivaryModal = ({ onClose }) => {
                   <div className="priceCard">
                     <div className="flex justify-between">
                       <span>Subtotal</span>
-                      <span>Rs.15000</span>
+                      <span>Rs.{storeProductData?.price}</span>
                     </div>
                     <div className="flex justify-between mt-1">
                       <span>Shipping</span>
@@ -222,12 +237,12 @@ const CashOnDelivaryModal = ({ onClose }) => {
                     <hr className="mt-1" />
                     <div className="flex justify-between mt-2">
                       <span>Total</span>
-                      <span>Rs.15000</span>
+                      <span>Rs.{storeProductData?.price}</span>
                     </div>
                   </div>
                   <hr className="mt-4" />
                   <div className="flex justify-between mt-3">
-                    <span>Tws Earbuds</span>
+                    <span>{storeProductData?.title}</span>
                     <span>Rs.15000</span>
                   </div>
                   <hr className="mt-4" />

@@ -1,5 +1,6 @@
 const initialState = {
     products: [],
+    topSellingItems: [],
     getCategoryProducts:[],
     singleProduct: null,
     isLoading: false,
@@ -13,6 +14,8 @@ const initialState = {
           return { ...state, getCategoryProducts: action.payload };
           case "GET_SINGLE_PRODUCT":
             return { ...state, singleProduct: action.payload };
+            case "SET_TOP_SELLING_PRODUCTS":
+              return { ...state, topSellingItems: action.payload };
           case "SET_IS_LOADING":
           return { ...state, isLoading: action.payload };
   

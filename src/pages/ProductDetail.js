@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import image from "../assets/51eg55uWmdL._AC_UX679_.jpg";
 import { useParams } from "react-router-dom";
 import { getSingleProduct } from "../store/actions/productsAction";
 import { useDispatch, useSelector } from "react-redux";
 import CashOnDelivaryModal from "../components/CashOnDelivaryModal";
+import axios from "axios";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -11,6 +11,7 @@ const ProductDetail = () => {
   const { singleProduct } = useSelector((state) => state.Products);
   const [selectedColor, setSelectedColor] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [country, setCountry] = useState(null);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -23,9 +24,28 @@ const ProductDetail = () => {
   const handleColorSelect = (color) => {
     setSelectedColor(color);
   };
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("https://api.ipify.org");
+      const ipAddress = response.data;
+
+      const countryDetail = await axios.get(
+        `https://ipinfo.io/${ipAddress}/json?token=5a6086648352e7`
+      );
+      const { city } = countryDetail.data;
+      setCountry(city);
+    } catch (error) {
+      console.error("Error fetching IP data:", error);
+    }
+  };
+
   const handleCart = (payload) => {};
   useEffect(() => {
     dispatch(getSingleProduct(id));
+  }, []);
+
+  useEffect(() => {
+    fetchData();
   }, []);
   return (
     <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -262,7 +282,13 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      {isModalOpen && <CashOnDelivaryModal onClose={closeModal} />}
+      {isModalOpen && (
+        <CashOnDelivaryModal
+          onClose={closeModal}
+          storeProductData={singleProduct}
+          currentCity={country}
+        />
+      )}
     </section>
   );
 };

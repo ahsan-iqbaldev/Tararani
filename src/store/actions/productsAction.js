@@ -23,6 +23,34 @@ export const getProducts = () => {
   };
 };
 
+export const getTopSellingProducts = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(setIsLoading(true));
+      firebase
+        .firestore()
+        .collection("products")
+        .onSnapshot((snapshot) => {
+          const topSellingProducts = [];
+          snapshot.forEach((doc) => {
+            const data = doc.data();
+            if (data.topSelling === true) {
+              topSellingProducts.push({ ...data, id: doc.id });
+            }
+          });
+          dispatch({
+            type: "SET_TOP_SELLING_PRODUCTS",
+            payload: topSellingProducts,
+          });
+          dispatch(setIsLoading(false));
+        });
+    } catch (error) {
+      console.log(error);
+      dispatch(setIsLoading(false));
+    }
+  };
+};
+
 export const getCateroriesProducts = (categoryId) => {
   return async (dispatch) => {
     try {
@@ -67,7 +95,28 @@ export const getSingleProduct = (id) => async (dispatch) => {
   console.log("firebase", data);
 };
 
-
+export const addOrder = (formData, onSucees) => () => async (dispatch) => {
+  try {
+    console.log(formData,'payload')
+    // const payload = {
+    //   firstName: formData?.firstName,
+    //   lastName: formData?.lastName,
+    //   email: formData?.email,
+    //   phoneNumber: formData?.phoneNumber,
+    //   selectedState: formData?.selectedState,
+    //   selectedCity: formData?.selectedCity,
+    //   address: formData?.address,
+    //   createdAt: firebase.firestore().serverTimestamp(),
+    //   curLocation: formData?.country,
+    //   status: "pending",
+    // };
+    // console.log(payload,'payload')
+    // await firebase.firestore().collection("orders").add(payload);
+    onSucees();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const setIsLoading = (val) => async (dispatch) => {
   dispatch({
