@@ -39,12 +39,14 @@ const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   await dispatch(addOrder(formData,() => {
-      toast.success('Your order are submit sucessfully')
-    }));
+    await dispatch(
+      addOrder(formData, () => {
+        onClose();
+        toast.success("Your order are submit sucessfully");
+      })
+    );
     console.log(formData, "formData");
   };
-
 
   return (
     <>
@@ -52,7 +54,7 @@ const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
         className="main-modal fixed w-full h-full inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster "
         style={{ background: "rgba(0,0,0,.7)" }}
       >
-        <div className="border border-teal-500 shadow-lg modal-container bg-white w-11/12 md:w-[75%] mx-auto rounded shadow-lg z-50 overflow-auto max-h-[90vh]">
+        <div className="border border-teal-500 modal-container bg-white w-11/12 md:w-[75%] mx-auto rounded shadow-lg z-50 overflow-auto max-h-[90vh]">
           <div className="modal-content py-5 text-left px-6 md:px-10">
             <div className="flex justify-between items-center pb-3">
               <p className="text-2xl font-bold">CASH ON DELIVERY</p>

@@ -95,24 +95,25 @@ export const getSingleProduct = (id) => async (dispatch) => {
   console.log("firebase", data);
 };
 
-export const addOrder = (formData, onSucees) => () => async (dispatch) => {
+export const addOrder = (formData, onSuccess) => async (dispatch) => {
   try {
-    console.log(formData,'payload')
-    // const payload = {
-    //   firstName: formData?.firstName,
-    //   lastName: formData?.lastName,
-    //   email: formData?.email,
-    //   phoneNumber: formData?.phoneNumber,
-    //   selectedState: formData?.selectedState,
-    //   selectedCity: formData?.selectedCity,
-    //   address: formData?.address,
-    //   createdAt: firebase.firestore().serverTimestamp(),
-    //   curLocation: formData?.country,
-    //   status: "pending",
-    // };
-    // console.log(payload,'payload')
-    // await firebase.firestore().collection("orders").add(payload);
-    onSucees();
+    const curLocation = formData?.country ? formData.country : null;
+
+    const payload = {
+      firstName: formData?.firstName,
+      lastName: formData?.lastName,
+      email: formData?.email,
+      phoneNumber: formData?.phoneNumber,
+      selectedState: formData?.selectedState,
+      selectedCity: formData?.selectedCity,
+      address: formData?.address,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      curLocation: curLocation,
+      status: "pending",
+    };
+    console.log(payload, "payload");
+    await firebase.firestore().collection("orders").add(payload);
+    onSuccess();
   } catch (error) {
     console.log(error);
   }

@@ -1,39 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.cf6578af.css",
-    "main.js": "/static/js/main.979b41b0.js",
-    "static/media/81fPKd-2AYL._AC_SL1500_.jpg": "/static/media/81fPKd-2AYL._AC_SL1500_.474294d3c9f202fd43b9.jpg",
+    "main.css": "/static/css/main.d25f489e.css",
+    "main.js": "/static/js/main.1e52c5eb.js",
     "static/media/bannerImgTwo.jpg": "/static/media/bannerImgTwo.bc1bdb910ead16c65197.jpg",
     "static/media/bannerImgFour.jpg": "/static/media/bannerImgFour.8f7fc6b56e74dba2b6f9.jpg",
     "static/media/bannerImgOne.jpg": "/static/media/bannerImgOne.efb3d39101f7ef77d616.jpg",
     "static/media/bannerImgThree.jpg": "/static/media/bannerImgThree.c80809bb40bee5c34372.jpg",
     "static/media/bannerImgFive.jpg": "/static/media/bannerImgFive.aa945e25375bfdee385f.jpg",
-    "static/media/81QpkIctqPL._AC_SX679_.jpg": "/static/media/81QpkIctqPL._AC_SX679_.3483170fe9a4fdf2cf08.jpg",
-    "static/media/71YXzeOuslL._AC_UY879_.jpg": "/static/media/71YXzeOuslL._AC_UY879_.746b26761fd8addf8ad8.jpg",
-    "static/media/81XH0e8fefL._AC_UY879_.jpg": "/static/media/81XH0e8fefL._AC_UY879_.06f041ca3b1838ae77bf.jpg",
-    "static/media/71li-ujtlUL._AC_UX679_.jpg": "/static/media/71li-ujtlUL._AC_UX679_.3f14b9bd3d076452d15f.jpg",
-    "static/media/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg": "/static/media/71YAIFU48IL._AC_UL640_QL65_ML3_.6054ca9658ccc7f4232e.jpg",
-    "static/media/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg": "/static/media/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.1b6b8ca6875cdfba64a1.jpg",
     "static/media/womens-banner.jpg": "/static/media/womens-banner.804a97a5de8f0db22b96.jpg",
     "static/media/mens-banner.jpg": "/static/media/mens-banner.52698706766803655ee7.jpg",
-    "static/media/71kWymZ+c+L._AC_SX679_.jpg": "/static/media/71kWymZ+c+L._AC_SX679_.3adbb4005e719a47441b.jpg",
-    "static/media/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg": "/static/media/71pWzhdJNwL._AC_UL640_QL65_ML3_.30800538fa81ccda8fdb.jpg",
-    "static/media/81Zt42ioCgL._AC_SX679_.jpg": "/static/media/81Zt42ioCgL._AC_SX679_.a8fb2045dd1eeb1dc87a.jpg",
     "static/media/electronics-banner-1.jpg": "/static/media/electronics-banner-1.6c3460dc59d771d03f51.jpg",
-    "static/media/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg": "/static/media/61sbMiUnoGL._AC_UL640_QL65_ML3_.812864a2afaa68cfa2e9.jpg",
-    "static/media/61U7T1koQqL._AC_SX679_.jpg": "/static/media/61U7T1koQqL._AC_SX679_.3386d5cb5861202c76ce.jpg",
-    "static/media/51eg55uWmdL._AC_UX679_.jpg": "/static/media/51eg55uWmdL._AC_UX679_.95eb26a3dcbe916bc7c5.jpg",
     "static/media/electronics-banner-2.jpg": "/static/media/electronics-banner-2.9607cb852e9cc5d89049.jpg",
-    "static/media/61IBBVJvSDL._AC_SY879_.jpg": "/static/media/61IBBVJvSDL._AC_SY879_.0f69d5e786b2f2eacf6d.jpg",
-    "static/media/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg": "/static/media/51UDEzMJVpL._AC_UL640_QL65_ML3_.5d4d64ebf64fa5abf298.jpg",
     "static/media/emptyCart.png": "/static/media/emptyCart.230e4848b62fb3cab325.png",
     "static/media/bdFlag.webp": "/static/media/bdFlag.19765596ff60685bb199.webp",
     "index.html": "/index.html",
-    "main.cf6578af.css.map": "/static/css/main.cf6578af.css.map",
-    "main.979b41b0.js.map": "/static/js/main.979b41b0.js.map"
+    "main.d25f489e.css.map": "/static/css/main.d25f489e.css.map",
+    "main.1e52c5eb.js.map": "/static/js/main.1e52c5eb.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf6578af.css",
-    "static/js/main.979b41b0.js"
+    "static/css/main.d25f489e.css",
+    "static/js/main.1e52c5eb.js"
   ]
 }
