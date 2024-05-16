@@ -16,17 +16,17 @@ const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
     selectedState: "",
     selectedCity: "",
     address: "",
-    curLocation: currentCity,
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
+  
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
+      curLocation: currentCity,
     }));
-
+  
     if (name === "selectedState") {
       const cityOptions = countries[value];
       setFormData((prevData) => ({
@@ -39,14 +39,17 @@ const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Current City:", currentCity);
+    console.log("FormData before submission:", formData);
     await dispatch(
       addOrder(formData, () => {
         onClose();
-        toast.success("Your order are submit sucessfully");
+        toast.success("Your order has been submitted successfully");
       })
     );
     console.log(formData, "formData");
   };
+  
 
   return (
     <>

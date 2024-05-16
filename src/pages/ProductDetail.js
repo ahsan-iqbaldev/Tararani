@@ -46,7 +46,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     fetchData();
-  }, [id]);
+  }, []);
   return (
     <section className="text-gray-700 body-font overflow-hidden bg-white">
       <div className="container px-2 py-24 mx-auto">

@@ -97,7 +97,8 @@ export const getSingleProduct = (id) => async (dispatch) => {
 
 export const addOrder = (formData, onSuccess) => async (dispatch) => {
   try {
-    const curLocation = formData?.country ? formData.country : null;
+    console.log(formData, "formDataformDataformData");
+    const curLocation = formData?.curLocation ? formData.curLocation : null;
 
     const payload = {
       firstName: formData?.firstName,
