@@ -99,17 +99,20 @@ export const addOrder = (formData, onSuccess) => async (dispatch) => {
   try {
     console.log(formData, "formDataformDataformData");
     const curLocation = formData?.curLocation ? formData.curLocation : null;
+    const email = formData?.email ? formData.email : null;
 
     const payload = {
       firstName: formData?.firstName,
       lastName: formData?.lastName,
-      email: formData?.email,
+      email:  email,
       phoneNumber: formData?.phoneNumber,
       selectedState: formData?.selectedState,
       selectedCity: formData?.selectedCity,
       address: formData?.address,
+      productId: formData?.productId,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       curLocation: curLocation,
+      price: formData?.price,
       status: "pending",
     };
     console.log(payload, "payload");

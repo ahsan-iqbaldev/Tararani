@@ -3,11 +3,12 @@ import { countries } from "../context/index";
 import { useDispatch } from "react-redux";
 import { addOrder } from "../store/actions/productsAction";
 import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 
 const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
   const dispatch = useDispatch();
+  const { id } = useParams();
 
-  console.log(currentCity, "currentCity");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -16,17 +17,19 @@ const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
     selectedState: "",
     selectedCity: "",
     address: "",
+    productId: id,
+    price: storeProductData?.price,
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-  
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
       curLocation: currentCity,
     }));
-  
+
     if (name === "selectedState") {
       const cityOptions = countries[value];
       setFormData((prevData) => ({
@@ -49,7 +52,6 @@ const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
     );
     console.log(formData, "formData");
   };
-  
 
   return (
     <>
@@ -248,7 +250,7 @@ const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
                   <hr className="mt-4" />
                   <div className="flex justify-between mt-3">
                     <span>{storeProductData?.title}</span>
-                    <span>Rs.15000</span>
+                    <span>Rs.{storeProductData?.price}</span>
                   </div>
                   <hr className="mt-4" />
                   <h1 className="mt-4 text-lg font-bold">Shipping method</h1>
