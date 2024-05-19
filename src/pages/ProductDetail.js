@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleProduct } from "../store/actions/productsAction";
 import { useDispatch, useSelector } from "react-redux";
-import CashOnDelivaryModal from "../components/CashOnDelivaryModal";
+import CashOnDeliveryModal from "../components/CashOnDelivaryModal";
 import axios from "axios";
+import Loading from "../components/Loading";
+import OrderOnWhatsapp from "../components/OrderOnWhatsapp";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { singleProduct } = useSelector((state) => state.Products);
+  const { singleProduct, isLoading } = useSelector((state) => state.Products);
   const [selectedColor, setSelectedColor] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [country, setCountry] = useState(null);
 
   const openModal = () => {
@@ -20,10 +23,18 @@ const ProductDetail = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const openModal2 = () => {
+    setIsModalOpen2(true);
+  };
+
+  const closeModal2 = () => {
+    setIsModalOpen2(false);
+  };
 
   const handleColorSelect = (color) => {
     setSelectedColor(color);
   };
+
   const fetchData = async () => {
     try {
       const response = await axios.get("https://api.ipify.org");
@@ -39,15 +50,21 @@ const ProductDetail = () => {
     }
   };
 
-  const handleCart = (payload) => {};
+  const handleCart = (payload) => {
+    // Add the product to cart logic here
+  };
+
   useEffect(() => {
     dispatch(getSingleProduct(id));
-  }, []);
+  }, [id, dispatch]);
 
   useEffect(() => {
     fetchData();
   }, []);
-  return (
+
+  return isLoading ? (
+    <Loading />
+  ) : (
     <section className="text-gray-700 body-font overflow-hidden bg-white">
       <div className="container px-2 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex gap-8 flex-wrap justify-center">
@@ -62,50 +79,20 @@ const ProductDetail = () => {
             </h1>
             <div className="flex mb-4">
               <span className="flex items-center">
-                <svg
-                  fill="currentColor"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 text-yellow-400"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                </svg>
-                <svg
-                  fill="currentColor"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 text-yellow-400"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                </svg>
-                <svg
-                  fill="currentColor"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 text-yellow-400"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                </svg>
-                <svg
-                  fill="currentColor"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 text-yellow-400"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                </svg>
+                {[...Array(4)].map((_, i) => (
+                  <svg
+                    key={i}
+                    fill="currentColor"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    className="w-4 h-4 text-yellow-400"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  </svg>
+                ))}
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -128,17 +115,16 @@ const ProductDetail = () => {
                 </span>
               </span>
             </div>
-            <p className="leading-relaxed">
+            <div className="leading-relaxed">
               <div
                 dangerouslySetInnerHTML={{
                   __html: `<p className="text-sm">${singleProduct?.description}</p>`,
                 }}
               />
-            </p>
+            </div>
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
               <div className="flex">
                 <span className="mr-3">Color</span>
-
                 <button
                   className={`border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none ${
                     singleProduct?.color
@@ -218,10 +204,9 @@ const ProductDetail = () => {
                     }`}
                     disabled={!singleProduct?.size}
                   >
-                    <option>SM</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
+                    {["SM", "M", "L", "XL"].map((size) => (
+                      <option key={size}>{size}</option>
+                    ))}
                   </select>
                   <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                     <svg
@@ -242,30 +227,19 @@ const ProductDetail = () => {
             <div className="flex justify-between flex-col md:flex-row gap-3">
               <button
                 onClick={openModal}
-                className="w-100 md:w-60 py-3 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 "
+                className="w-full md:w-60 py-3 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700"
               >
                 Cash on Delivery
               </button>
-              <div className="flex">
+              <div className="flex justify-center align-middle">
                 <button
-                  // onClick={() =>
-                  //   dispatch(
-                  //     addToCart({
-                  //       id: singleProduct.id,
-                  //       title: singleProduct.title,
-                  //       description: singleProduct.description,
-                  //       price: singleProduct.price,
-                  //       category: singleProduct.category,
-                  //       image: singleProduct.productImages,
-                  //       quantity: 1,
-                  //     })
-                  //   )
-                  // }
-                  className="w-80 md:w-40 py-2 px-6 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 "
+                  onClick={openModal2}
+                  className="w-full md:w-60 py-3 whatsapp-button rounded-md font-semibold cursor-pointer"
                 >
-                  Add to Card
+                  <i className="fa fa-whatsapp my-float"></i>
+                  <span className="">Order on WhatsApp</span>
                 </button>
-                <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                {/* <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
                     strokeLinecap="round"
@@ -276,15 +250,22 @@ const ProductDetail = () => {
                   >
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
                   </svg>
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
         </div>
       </div>
       {isModalOpen && (
-        <CashOnDelivaryModal
+        <CashOnDeliveryModal
           onClose={closeModal}
+          storeProductData={singleProduct}
+          currentCity={country}
+        />
+      )}
+         {isModalOpen2 && (
+        <OrderOnWhatsapp
+          onClose={closeModal2}
           storeProductData={singleProduct}
           currentCity={country}
         />
