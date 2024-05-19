@@ -1,9 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../components/Banner";
 import Products from "../components/Products";
-// import Banner from "../components/home/Banner";
-// import Products from "../components/home/Products";
-
 const Home = () => {
   return (
     <div>

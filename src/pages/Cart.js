@@ -153,7 +153,7 @@ const Cart = () => {
     //   {/* ============ Product Start here ============== */}
     //   {/* ============ Product End here ================ */}
     // </div>
-    <h2>Cart</h2>
+    <h2 className="text-center py-20">Comming Soon</h2>
   );
 };
 

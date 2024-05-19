@@ -78,9 +78,9 @@ const Header = () => {
               <p className="hidden mdl:inline-flex text-xs font-semibold mt-3 text-whiteText">
                 Cart
               </p>
-              {/* <span className="absolute text-xs top-0 left-6 w-4 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
-                {products.length > 0 ? products.length : 0}
-              </span> */}
+              <span className="absolute text-xs top-0 left-6 w-4 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
+                {/* {products.length > 0 ? products.length : 0} */}0
+              </span>
             </div>
           </Link>
           <Link to="/cart">
@@ -89,9 +89,9 @@ const Header = () => {
               <p className="hidden mdl:inline-flex text-xs font-semibold mt-3 text-whiteText">
                 Wish List
               </p>
-              {/* <span className="absolute text-xs top-0 left-6 w-4 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
-                {products.length > 0 ? products.length : 0}
-              </span> */}
+              <span className="absolute text-xs top-0 left-6 w-4 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
+                {/* {products.length > 0 ? products.length : 0} */}0
+              </span>
             </div>
           </Link>
         </div>

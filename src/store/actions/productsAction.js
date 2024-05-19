@@ -90,13 +90,14 @@ export const getSingleProduct = (id) => async (dispatch) => {
         });
       }
 
-      dispatch(setIsLoading(true));
+      dispatch(setIsLoading(false));
     });
   console.log("firebase", data);
 };
 
 export const addOrder = (formData, onSuccess) => async (dispatch) => {
   try {
+    dispatch(setIsLoading(true));
     console.log(formData, "formDataformDataformData");
     const curLocation = formData?.curLocation ? formData.curLocation : null;
     const email = formData?.email ? formData.email : null;
@@ -105,6 +106,7 @@ export const addOrder = (formData, onSuccess) => async (dispatch) => {
       firstName: formData?.firstName,
       lastName: formData?.lastName,
       email:  email,
+      orderOn: formData.order,
       phoneNumber: formData?.phoneNumber,
       selectedState: formData?.selectedState,
       selectedCity: formData?.selectedCity,
@@ -117,9 +119,11 @@ export const addOrder = (formData, onSuccess) => async (dispatch) => {
     };
     console.log(payload, "payload");
     await firebase.firestore().collection("orders").add(payload);
+    dispatch(setIsLoading(false));
     onSuccess();
   } catch (error) {
     console.log(error);
+    dispatch(setIsLoading(false));
   }
 };
 

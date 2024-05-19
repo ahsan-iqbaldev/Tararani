@@ -50,16 +50,28 @@ function App() {
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/categories" element={<AllCategories />}></Route>
           <Route path="/product-detail/:id" element={<ProductDetail />}></Route>
-          <Route path="/category-product/:id" element={<CategoryProducts />}></Route>
+          <Route
+            path="/category-product/:id"
+            element={<CategoryProducts />}
+          ></Route>
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Route>
     )
   );
   return (
-    <div className="font-bodyFont bg-gray-100">
-      <RouterProvider router={router}></RouterProvider>
-    </div>
+    <>
+      <div className="font-bodyFont bg-gray-100">
+        <RouterProvider router={router}></RouterProvider>
+      </div>
+      <a
+        href="https://api.whatsapp.com/send?phone=+923014093819&text=Hi, I came from TaraRani shopping website."
+        class="float"
+        target="_blank"
+      >
+        <i class="fa fa-whatsapp my-floatIcon"></i>
+      </a>
+    </>
   );
 }
 
