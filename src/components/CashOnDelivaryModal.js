@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { countries } from "../context/index";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addOrder } from "../store/actions/productsAction";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 
 const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
+  const { isLoading } = useSelector((state) => state.Products);
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -16,6 +17,7 @@ const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
     phoneNumber: "",
     selectedState: "",
     selectedCity: "",
+    order: "website",
     address: "",
     productId: id,
     price: storeProductData?.price,
@@ -263,6 +265,7 @@ const CashOnDelivaryModal = ({ onClose, storeProductData, currentCity }) => {
               <div className="w-full text-center pt-1">
                 <button
                   type="submit"
+                  disabled={isLoading}
                   className="w-60 py-3 bg-yellow-400 rounded-md font-semibold cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 "
                 >
                   Place Order
