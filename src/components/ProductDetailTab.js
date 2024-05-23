@@ -4,7 +4,7 @@ const ProductDetailTab = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
 
   return (
-    <div className="w-[80%] mx-auto pb-10">
+    <div className="w-[80%] mx-auto pb-16">
       <div className="border-b border-gray-200 dark:border-gray-700 mb-4">
         <ul className="flex flex-wrap -mb-px" id="myTab" role="tablist">
           <li className="mr-2" role="presentation">
